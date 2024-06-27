@@ -1,22 +1,34 @@
 //запуск анимации
-(() => document.querySelectorAll('.anim').forEach(item => item.classList.add('show')))()
+(() => document.querySelectorAll('.anim').forEach(item => {
+  item.style.cssText = `
+  opacity: 1;
+  transform: translate(0);`
+}))()
 
 //падение ноток при нажатии на пункты навигации
+const soundSource = {
+  re: "./sound/zvuk-notyi-re.mp3",
+  si: "./sound/zvuk-notyi-si.mp3",
+  sol: "./sound/zvuk-notyi-sol.mp3",
+}
+
 document.querySelector('.header__nav').addEventListener('mousedown', e => {
   if (e.target.dataset.note) {
-    createNote(e.target, e.target.dataset.note)
+    createNote(e.target, soundSource[e.target.dataset.note])
   }
 })
 
-function createNote(e, mus) {
+const noteImg = new Image();
+noteImg.src = './icons/note.svg';
+noteImg.className = 'nav__anim'
+
+function createNote(e, source) {
   const sound = new Audio();
-  sound.src = `./sound/zvuk-notyi-${mus}.mp3`;
+  sound.src = source;
   sound.currentTime = 0.0;
   sound.play();
 
-  const note = document.createElement('img');
-  note.src = './icons/note.svg';
-  note.className = 'nav__anim'
+  const note = noteImg.cloneNode(true)
   note.style.left = e.getBoundingClientRect().left - 15 + e.clientWidth / 2 + 'px'
   note.style.top = '10px'
   document.body.prepend(note);

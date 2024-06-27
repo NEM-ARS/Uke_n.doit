@@ -20,8 +20,6 @@
 
 a {
     text-decoration: none;
-    display: block;
-    height: 100%;
     color: inherit;
 }
 
@@ -213,13 +211,13 @@ body {
 }
 
 h1 {
-    transform: translateY(-100px);
+    transform: translateY(100px);
     opacity: 0;
     transition: .5s linear 1s;
 }
 
 .section__small-text {
-    transform: translateY(-100px);
+    transform: translateY(100px);
     opacity: 0;
     transition: .5s linear 1.3s;
 }
@@ -470,7 +468,7 @@ h1 {
     z-index: 10;
     padding: 10px;
     display: grid;
-    grid-template-rows: repeat(13, 1fr);
+    grid-template-rows: repeat(11, 1fr);
 }
 
 .program li:first-child {
@@ -493,6 +491,7 @@ h1 {
 .sec4 {
     height: 200px;
     background: var(--color-dark);
+    text-align: center;
 }
 
 .contacts {
@@ -521,6 +520,15 @@ h1 {
     background: black;
     height: 30px;
     box-shadow: 0 0 18px 10px;
+}
+
+.sec4 >a{
+    color: var(--color-light);
+    font-family: 'Shantell Sans';
+}
+
+.sec4 >a:hover{
+    border-bottom: 2px solid var(--color-light);
 }
 
 .show {
