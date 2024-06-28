@@ -1,10 +1,17 @@
 //запуск анимации
-(() => document.querySelectorAll('.anim').forEach(item => {
-  item.style.cssText = `
-  opacity: 1;
-  transform: translate(0);`
-}))()
-
+// (() => document.querySelectorAll('.anim').forEach(item => {
+//   item.style.cssText = `
+//   opacity: 1;
+//   transform: translate(0);`
+// }))()
+window.onload = ()=>{
+  document.querySelector('.preloader').remove()
+  document.querySelectorAll('.anim').forEach(item => {
+    item.style.cssText = `
+    opacity: 1;
+    transform: translate(0);`
+  })
+}
 //падение ноток при нажатии на пункты навигации
 const soundSource = {
   re: "./sound/zvuk-notyi-re.mp3",

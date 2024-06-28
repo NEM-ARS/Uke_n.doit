@@ -27,6 +27,37 @@ body {
     overflow-x: hidden;
 }
 
+.preloader{
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-dark);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader__elem{
+width: 5vw;
+filter: contrast(0.5);
+animation: load .8s linear infinite alternate;
+
+}
+
+.preloader__elem:nth-child(2){
+    animation-delay: .3s;
+}
+.preloader__elem:nth-child(3){
+    animation-delay: .6s;
+}
+
+@keyframes load {
+    to{
+        transform: translateY(30px);
+    }
+}
+
+
 .header {
     max-width: 50vw;
     min-width: 350px;
@@ -162,6 +193,14 @@ body {
         transform: translate(20px, 250px);
         opacity: 0;
     }
+}
+
+.nav__bg{
+    height: 60px;
+    position: relative;
+    top: -131px;
+    z-index: -2;
+    backdrop-filter: blur(5px);
 }
 
 .section {
@@ -520,11 +559,18 @@ h1 {
     background: black;
     height: 30px;
     box-shadow: 0 0 18px 10px;
+    transition: all .2s linear;
 }
 
 .sec4 >a{
     color: var(--color-light);
     font-family: 'Shantell Sans';
+}
+
+.contacts img:hover{
+    transform: scale(1.2);
+    box-shadow: none;
+    background: none;
 }
 
 .sec4 >a:hover{
